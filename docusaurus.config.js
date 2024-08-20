@@ -77,7 +77,7 @@ const config = {
                 sidebarPath: require.resolve('./sidebarsCommunity.json'),
             }),
         ],
-        process.env.NODE_ENV === 'development' ? null : customDocusaurusPlugin,
+        // process.env.NODE_ENV === 'development' ? null : customDocusaurusPlugin,
         [
             '@docusaurus/plugin-pwa',
             {
@@ -202,26 +202,37 @@ const config = {
             }),
         ],
     ],
-    themes: [
-        [
-            '@easyops-cn/docusaurus-search-local',
-            {
-                hashed: true,
-                language: ['en', 'zh'],
-                highlightSearchTermsOnTargetPage: true,
-                // indexPages: true,
-                indexDocs: true,
-                docsRouteBasePath: '/',
-                indexBlog: false,
-                explicitSearchResultPath: true,
-                searchBarShortcut: true,
-                searchBarShortcutHint: true,
-            },
-        ],
-    ],
+    // themes: [
+    //     [
+    //         '@easyops-cn/docusaurus-search-local',
+    //         {
+    //             hashed: true,
+    //             language: ['en', 'zh'],
+    //             highlightSearchTermsOnTargetPage: true,
+    //             // indexPages: true,
+    //             indexDocs: true,
+    //             docsRouteBasePath: '/',
+    //             indexBlog: false,
+    //             explicitSearchResultPath: true,
+    //             searchBarShortcut: true,
+    //             searchBarShortcutHint: true,
+    //         },
+    //     ],
+    // ],
     themeConfig:
         /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
         ({
+            algolia: {
+                appId: 'UUKF60R98F',
+                apiKey: '1b34939eb7c1508a11571110b04cbc2e',
+                indexName: 'apache-doris',
+                contextualSearch: true,
+                searchParameters: {
+                    facetFilters: ['docusaurus_tag', 'language', 'lang', 'version', 'type'],
+                },
+                maxResultsPerGroup: 7,
+                debug: true,
+            },
             matomo: {
                 matomoUrl: 'https://analytics.apache.org/',
                 siteId: '43',
@@ -316,7 +327,8 @@ const config = {
                         // to: '/docs/install/source-install/compilation-with-docker',
                         type: 'doc',
                         docId: 'install/source-install/compilation-with-docker',
-                        activeBaseRegex: 'summary|install/cluster-deployment|install/source-install|db-connect|table-design|data-operate|query|lakehouse|compute-storage-decoupled|admin-manual|practical-guide|sql-manual',
+                        activeBaseRegex:
+                            'summary|install/cluster-deployment|install/source-install|db-connect|table-design|data-operate|query|lakehouse|compute-storage-decoupled|admin-manual|practical-guide|sql-manual',
                     },
                     {
                         label: '性能测试',
@@ -379,7 +391,8 @@ const config = {
                         // to: '/docs/install/source-install/compilation-with-docker',
                         type: 'doc',
                         docId: 'install/source-install/compilation-with-docker',
-                        activeBaseRegex: 'summary|install/cluster-deployment|install/source-install|db-connect|table-design|data-operate|query|lakehouse|compute-storage-decoupled|admin-manual|practical-guide|sql-manual'
+                        activeBaseRegex:
+                            'summary|install/cluster-deployment|install/source-install|db-connect|table-design|data-operate|query|lakehouse|compute-storage-decoupled|admin-manual|practical-guide|sql-manual',
                     },
                     {
                         label: 'Benchmark',

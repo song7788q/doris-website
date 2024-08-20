@@ -18,13 +18,11 @@
 @import './components/search';
 @import './common';
 
-
 @layer utilities {
     .transition-slide {
         @apply inline-block transform transition-transform duration-300 hover:translate-x-1 group-hover:translate-x-1;
     }
 }
-
 
 .button-primary {
     display: flex;
@@ -34,16 +32,16 @@
     align-items: center;
     gap: 4px;
     border-radius: 4px;
-    background: var(--b-1, #444FD9);
+    background: var(--b-1, #444fd9);
     color: white;
 }
 
 :root {
-    --font-family-base: "SF Pro Display", "SF Pro Icons", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-family-base: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 .markdown :where(p, h1, h2, h3, h4, h5, h6, li, blockquote) {
     font-family: var(--font-family-base);
-    color: #2a2f34
+    color: #2a2f34;
 }
 // body, .markdown {
 //     font-family: var(--font-family-base);
@@ -53,4 +51,58 @@
 .navbar__link {
     font-family: var(--font-family-base);
     font-weight: 400 !important;
+}
+
+.DocSearch {
+    /* --docsearch-primary-color: var(--ifm-color-primary); */
+    /* --docsearch-text-color: var(--ifm-font-color-base); */
+    --docsearch-muted-color: var(--ifm-color-secondary-darkest);
+    --docsearch-container-background: rgba(94, 100, 112, 0.7);
+    /* 弹窗 */
+    --docsearch-modal-background: var(--ifm-color-secondary-lighter);
+    /* 搜索框 */
+    --docsearch-searchbox-background: var(--ifm-color-secondary);
+    --docsearch-searchbox-focus-background: var(--ifm-color-white);
+    /* 条目 */
+    --docsearch-hit-color: var(--ifm-font-color-base);
+    --docsearch-hit-active-color: var(--ifm-color-white);
+    --docsearch-hit-background: var(--ifm-color-white);
+    /* 页脚 */
+    --docsearch-footer-background: var(--ifm-color-white);
+    &.DocSearch-Button {
+        border-radius: 8px;
+        background-color: #f7f9fe;
+        height: 40px;
+        padding: 0 16px;
+        width: 247px;
+        color: #4c576c;
+        font-size: 14px;
+        font-weight: normal;
+        &:hover {
+            box-shadow: none;
+            background: #f7f9fe;
+        }
+        .DocSearch-Button-Placeholder {
+            color: #8592a6;
+            font-size: 12px;
+            font-weight: normal;
+        }
+        .DocSearch-Button-Keys {
+            min-width: auto;
+            background-color: #fff;
+            border-radius: 2px;
+            .DocSearch-Button-Key {
+                margin-right: 0;
+                box-shadow: none;
+                background: transparent;
+                border-radius: 0;
+                top: 1px;
+                width: 14px;
+            }
+        }
+        .DocSearch-Search-Icon {
+            width: 14px;
+            stroke-width: 1.5;
+        }
+    }
 }
